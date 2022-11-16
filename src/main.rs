@@ -23,7 +23,7 @@ fn main() {
         .stdin(Stdio::piped())
         .stdout(Stdio::piped())
         .spawn()
-        .expect("Falló pickle id");
+        .expect("Falló pickle blank");
 
     clear.stdin.take().expect("No se abrió el stdin").write(b"y").expect("No se escribió");
     let mut respuesta: [u8;50] = [0;50];
@@ -41,7 +41,7 @@ fn main() {
         .arg("program")
         .arg("/home/dietpi/TestCode.hex")
         .output()
-        .expect("Falló pickle id");
+        .expect("Falló pickle program");
 
     let prgstr = String::from_utf8(program.stdout).expect("No se puede convertir program");
 
@@ -56,9 +56,9 @@ fn main() {
         .arg("verify")
         .arg("/home/dietpi/TestCode.hex")
         .output()
-        .expect("Falló pickle id");
+        .expect("Falló pickle verify");
 
-    let verstr = String::from_utf8(verify.stdout).expect("No se puede convertir program");
+    let verstr = String::from_utf8(verify.stdout).expect("No se puede convertir verify");
 
     println!("verify");
     print!("{}",verstr);
