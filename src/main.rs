@@ -3,8 +3,7 @@ use std::io::{Write, Read};
 use std::str;
 
 fn main() {
-    let mut p16 = Command::new("p16");
-    let id = p16
+    let id = Command::new("p16")
         .arg("id")
         .output()
         .expect("Falló pickle id");
@@ -18,7 +17,7 @@ fn main() {
         println!("SIUUUUU");
     }
 
-    let mut clear = p16
+    let mut clear = Command::new("p16")
         .arg("blank")
         .stdin(Stdio::piped())
         .stdout(Stdio::piped())
@@ -37,7 +36,7 @@ fn main() {
         println!("SIUUUUU");
     }
 
-    let program = p16
+    let program = Command::new("p16")
         .arg("program")
         .arg("/home/dietpi/TestCode.hex")
         .output()
@@ -53,8 +52,9 @@ fn main() {
         println!("SIUUUUU");
     }
 
-    let verify = p16
-        .arg("select")
+    let verify = Command::new("p16")
+        .arg("verify")
+        .arg("/home/dietpi/TestCode.hex")
         .output()
         .expect("Falló pickle verify");
 
