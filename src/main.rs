@@ -53,7 +53,7 @@ fn main() {
     }
 
     let verify = p16
-        .arg("verify")
+        .arg("select")
         .output()
         .expect("Falló pickle verify");
 
