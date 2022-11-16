@@ -6,5 +6,8 @@ fn main() {
         .output()
         .expect("Falló pickle id");
 
-    print!("{:?}", id.stdout); 
+    let idstr = String::from_utf8(id.stdout).expect("No se puede convertir");
+
+    print!("{}",idstr);
+
 }
