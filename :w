@@ -1,9 +1,0 @@
-use std::process::{Command, Stdio};
-
-fn main() {
-    let id = match Command::new("p16")
-        .arg("id")
-        .output()
-        .expect("Falló pickle id");
-    
-}
