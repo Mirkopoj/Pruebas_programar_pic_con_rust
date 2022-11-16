@@ -46,6 +46,7 @@ fn main() {
     let prgstr = String::from_utf8(program.stdout).expect("No se puede convertir program");
 
     println!("program");
+    print!("{}",prgstr);
     if prgstr.contains("pic16_read_config_memory"){
         println!("CACA");
     } else {
