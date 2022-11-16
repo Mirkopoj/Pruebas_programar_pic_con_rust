@@ -9,9 +9,9 @@ fn main() {
     let idstr = String::from_utf8(id.stdout).expect("No se puede convertir");
 
     if idstr.contains("pic16_read_config_memory"){
-        print!("CACA");
+        println!("CACA");
     } else {
-        print!("SIUUUUU");
+        println!("SIUUUUU");
     }
 
 }
