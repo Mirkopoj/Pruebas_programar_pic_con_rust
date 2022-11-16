@@ -8,6 +8,10 @@ fn main() {
 
     let idstr = String::from_utf8(id.stdout).expect("No se puede convertir");
 
-    print!("{}",idstr);
+    if idstr.contains("pic16_read_config_memory"){
+        print!("CACA");
+    } else {
+        print!("SIUUUUU");
+    }
 
 }
