@@ -54,7 +54,6 @@ fn main() {
 
     let verify = p16
         .arg("verify")
-        .arg("/home/dietpi/TestCode.hex")
         .output()
         .expect("Falló pickle verify");
 
