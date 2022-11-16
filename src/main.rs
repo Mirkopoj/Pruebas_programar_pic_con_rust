@@ -1,5 +1,6 @@
 use std::process::{Command, Stdio};
 use std::io::{Write, Read};
+use std::str;
 
 fn main() {
     let mut p16 = Command::new("p16");
@@ -25,12 +26,12 @@ fn main() {
         .expect("Falló pickle id");
 
     clear.stdin.take().expect("No se abrió el stdin").write(b"y").expect("No se escribió");
-    let respuesta = String::new();
-    clear.stdout.expect("No se abrió el stdout").read(&respuesta);
-    //let prgstr = String::from_utf8(respuesta).expect("No se puede convertir program");
+    let mut respuesta: [u8;50] = [0;50];
+    clear.stdout.expect("No se abrió el stdout").read(&mut respuesta).expect("Falló leer stdout");
+    let clrstr = str::from_utf8(&respuesta).expect("No se puede convertir program");
 
     println!("blank");
-    if respuesta.contains("pic16_read_config_memory"){
+    if clrstr.contains("pic16_read_config_memory"){
         println!("CACA");
     } else {
         println!("SIUUUUU");
@@ -57,10 +58,10 @@ fn main() {
         .output()
         .expect("Falló pickle id");
 
-    let verstr = String::from_utf8(program.stdout).expect("No se puede convertir program");
+    let verstr = String::from_utf8(verify.stdout).expect("No se puede convertir program");
 
     println!("verify");
-    if prgstr.contains("Fail: 0"){
+    if verstr.contains("Fail: 0"){
         println!("SIUUUUU");
     } else {
         println!("CACA");
