@@ -61,6 +61,7 @@ fn main() {
     let verstr = String::from_utf8(verify.stdout).expect("No se puede convertir program");
 
     println!("verify");
+    print!("{}",verstr);
     if verstr.contains("Fail: 0"){
         println!("SIUUUUU");
     } else {
